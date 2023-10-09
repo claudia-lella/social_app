@@ -1,0 +1,13 @@
+.container {
+    background-color: #ffffff; margin-bottom: 0;
+    background-image: url(../../../assets/img/Social_Media_Body-1480_0_60.jpg);
+}
+
+.copyright, a {
+    color: rgb(30, 30, 30);
+    font-weight: 600;
+}
+
+a {
+    font-size: smaller
+}

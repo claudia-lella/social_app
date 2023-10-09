@@ -1,0 +1,34 @@
+<div class="container mb-4">
+
+    <!-- User sherch card -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="row">
+                <div class="user d-flex flex-column justify-content-center text-center align-items-center px-1 col-3">
+                    <h6 class="m-1">
+                        <img class="user-img mb-2" [src]=" user?.profileImage ? user?.profileImage:'../../../assets/img/avatarHhh.png'" alt="">
+                        &nbsp;&nbsp;{{user?.nickname}}
+                    </h6>
+                </div>
+                <div class="info d-flex flex-column justify-content-center text-center align-items-center col-6">
+                    <div class="row my-2 col-12">
+                        {{user?.name}} {{user?.lastname}}
+                    </div>
+                    <div class="row my-2 col-12 profile-type">
+                        Utente {{user?.profileType}}
+                    </div>
+                </div>
+                <div class="row d-flex flex-column justify-content-center text-center align-items-center px-1 col-3">
+                    <button 
+                        (click)="addFriendshipEmitter()"
+                        type="button" class="btn btn-primary">
+                            Aggiungi
+                        </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+

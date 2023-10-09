@@ -1,0 +1,20 @@
+app-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 100;
+}
+
+.campaign {
+    margin-top: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+    
+}
+
+.tableCampaign{
+    margin-left: 20px;
+    margin-right: 10px;
+}
+

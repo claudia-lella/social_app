@@ -1,0 +1,88 @@
+<app-navbar 
+    [position]="'home'"
+    class="row"
+    [user]="user"
+    (delete)="activateDeletePopup()"
+    (logout)="activateLogoutPopup()"
+    (post)="activatePostPopup()"
+    (searchStarted)="isSearching = true"
+    (search)="userSearch($event)">
+</app-navbar>
+<div class="row main">
+    <div class="col-3">
+        <app-left-sidebar
+            [user]="user"
+            [userLogged]="userLogged"
+            (profilePopup)="activateProfilePopupAndUpdate()"
+            [upgradeVisible]="upgradeVisible"
+            [updateVisible]="updateVisible"
+            (upgrade)="openBusinessPopup()"
+            class="my-4">
+        </app-left-sidebar>
+    </div>
+    <div class="col-6">
+        <div *ngIf="posts && posts.length === 0 && !isSearching" class="intro my-4 mt-4 text-center">
+            <img class="col-12 align-items-center" style="width: 300px;" src="../../../assets/img/5234.jpg" alt="">
+            <div class="col-12">
+                Non hai ancora nessun post da visualizzare!
+                <br>
+                Prova a cercare qualche amico oppure
+                <br>
+                pubblica il tuo primo post!
+            </div>
+        </div>
+        <div *ngIf="!isSearching">
+            <app-post-card 
+                class="my-4"
+                *ngFor="let post of posts"
+                [post]="post"
+                [loggedUser]="user"
+                (addComment)="callReadApi()">
+            </app-post-card>
+        </div>
+        <div *ngIf="isSearching">
+            <app-search-card class="my-4"
+                *ngFor="let user of usersSearch"
+                [user]="user"
+                (add)="addFrienship($event)">
+            </app-search-card>
+        </div>
+    </div>
+    <div class="col-3">
+        <app-right-sidebar class="my-4"
+        [user]="user"
+        (confirm)="acceptFriendship($event)"
+        (reject)="rejectFriendship($event)"
+        (delete)="deleteFriendship($event)"
+        [pendingReceivedFriendShips]="pendingReceivedFriendShips"
+        [pendingSendedFriendShips]="pendingSendedFriendShips"
+        [friendship]="friendship">
+    </app-right-sidebar>
+    </div>
+</div>
+<app-footer class="row"></app-footer>
+<app-delete-popup
+    [isVisible]="deletePopupVisible"
+    [user]="user"
+    (delete)="deleteUser(user?.id!)"
+    (leaveConfirm)="deactivateDeletePopup()">
+</app-delete-popup>
+<app-logout-popup
+    [isVisible]="logoutPopupVisible"
+    (leavePopup)="closeLogoutPopup()"></app-logout-popup>
+<app-profile-popup
+    [profileImage]="userToUpdateImage"
+    [user]="userToUpdate"
+    [isVisible]="userUpdatePopupVisible"
+    (leave)="deactivateProfilePopup()">
+</app-profile-popup>
+<app-post-popup
+    [isVisible]="postPopupRegistrationVisible"
+    (leave)="deactivatePostPopup()"
+    [user]="user">
+</app-post-popup>
+<app-business-popup 
+    [businessPopupVisible]="businessConfirmPopupVisible"
+    (upgradeCancelled)="deactivateBusinessPopup()"
+    (upgradeConfirmed)="confirmUpgrade()">
+</app-business-popup>

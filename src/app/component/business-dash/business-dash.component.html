@@ -1,0 +1,23 @@
+<app-navbar class="row"
+    [user]="user">
+</app-navbar>
+<div class="row campaign">
+    <app-post-table class="col-8 my-4"
+        [posts]="posts"
+        [post]="selectedPost"
+        (promote)="promotePost($event)">
+    </app-post-table>
+    <app-campaign-cart class="col-4 my-4"
+        [post]="post"
+        [campaign]="campaign"
+        [selectedPostId]="postId"
+        [loggedUser]="user"
+        [patterns]="patterns"
+        (campaignCreated)="addCampaign($event)">
+    </app-campaign-cart>
+</div>
+<div class="row tableCampaign">
+    <app-campaign-table class="col-12 my-4"
+    [campaigns]="campaigns"></app-campaign-table>
+</div>
+<app-footer class="row"></app-footer>

@@ -1,0 +1,28 @@
+.card {
+    border: none !important;
+    box-shadow: 0 6px 12px 0 rgba(170, 159, 154, 0.2);
+}
+
+.btn {
+    background-color: #cd4d0e !important;
+    border: #cd4d0e !important;
+}
+
+button:hover {
+    background-color: rgb(240, 130, 76) !important;
+    transition: .35s;
+}
+
+button:not(:hover) {
+    transition: .35s; 
+  }
+
+.border {
+    margin-bottom: 20px !important;
+}
+
+.profile-type {
+    font-size: smaller;
+    color: #cd4d0e !important;
+    font-weight: 500;
+}

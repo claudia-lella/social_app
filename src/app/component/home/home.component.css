@@ -1,0 +1,16 @@
+app-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 100;
+}
+
+.main {
+    margin-top: 80px;
+}
+
+.intro {
+    font-size: large;
+    color: rgb(69, 69, 69);
+}

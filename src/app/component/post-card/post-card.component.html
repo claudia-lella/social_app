@@ -1,0 +1,70 @@
+<div class="container mb-4">
+
+    <!-- Post card -->
+    <div class="card mb-4">
+        <div class="card-body">
+
+            <!-- post image -->
+            <img class="post-img" [src]=" post?.image ? post?.image:'../../../assets/img/paesaggio_prova.jpg'" alt="post-image">
+
+            <!-- likes -->
+            <div class="like mt-2">
+                <button class="like-btn"
+                    (click)="addLike()"
+                    *ngIf = "!likedByUser">
+                    <i class="fa-regular fa-face-smile" style="color: #474747;"></i>
+                </button>
+                <button class="like-btn" disabled
+                    *ngIf = "likedByUser">
+                    <i class="fa-solid fa-face-laugh-beam" style="color: #f0824c;"></i>
+                </button>
+                <span class="like-text mx-2">{{post?.likes?.length}}</span>
+                <span class="like-text mx-2">{{likedByUser ? 'Ti piace già' : 'Ti piace?' }}</span>
+            </div>
+
+            <!-- caption -->
+            <div class="caption mt-4">
+                <h6 class="mb-3">
+                    <span>
+                        <img class="user-img p-1 rounded-circle img-fluid" style="object-fit: cover;" [src]=" post?.user?.profileImage ? post?.user?.profileImage : '../../../assets/img/avatarHhh.png'" alt="">
+                    </span>
+                    <span class="user">{{post?.user?.nickname}}</span> <br>
+                    <span class="date">{{ post?.timing | date: 'dd/MM/yyyy HH:mm' }}</span>
+                </h6>
+                <p class="text-muted mb-1 post-text mb-4">{{post?.content}}</p>
+            </div>
+            <hr>
+
+            <!-- comments -->
+            <div>
+                <label (click)="showPostComments()" class="show-comments">Mostra Commenti &#9661;</label>
+                <div class="comment-section fadeIn"
+                    *ngIf="showComments">
+                    <table *ngFor="let comment of post?.comments" class="comments">
+                        <tr class="mr-3">
+                            <th class="mt-3">
+                                <img class="profile-img p-1 rounded-circle img-fluid" style="object-fit: cover;" [src]=" comment?.user?.profileImage ? comment?.user?.profileImage : '../../../assets/img/avatarHhh.png'" alt="">
+                                {{comment?.user?.nickname}}
+                            </th>
+                        </tr>
+                        <tr class="text-muted post-text ml-3"><td>{{comment?.content}}</td></tr>
+                        <tr><span class="date-comment">{{ comment?.timing | date: 'dd/MM/yyyy HH:mm' }}</span></tr>
+                    </table>
+                </div>
+                <hr>
+                <form #f="ngForm" (submit)="formManager(f)">
+                    <textarea [ngModel] name="content" cols="30" rows="2" class="col-12" placeholder="Scrivi cosa pensi..."
+                        >
+                    </textarea>
+                    <div class="row d-flex flex-row-reverse mx-1">
+                        <button type="submit" class="btn btn-primary">Commenta</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+

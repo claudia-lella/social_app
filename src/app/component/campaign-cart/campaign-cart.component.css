@@ -1,0 +1,20 @@
+.btn {
+    background-color: #cd4d0e !important;
+    border: #cd4d0e !important;
+    height: 40px;
+    font-size: smaller !important;
+    padding: 0;
+}
+
+.btn:hover {
+    background-color: rgb(240, 130, 76) !important;
+    transition: .35s;
+}
+
+.btn:not(:hover) {
+    transition: .35s; 
+}
+
+.text{
+    color: #cd4d0e;
+}

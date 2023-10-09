@@ -1,0 +1,154 @@
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 200;
+    display: none;
+  }
+  
+  .popup-overlay.visible {
+    display: block;
+  }
+  
+  .popup {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 20px;
+    border-color:#75757580;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    width: 600px;
+    padding: 20px;
+    margin-top: 80px;
+    z-index: 150;
+    max-height: 95%; /* Imposta un'altezza massima del popup */
+    overflow-y: auto; /* Abilita la barra di scorrimento verticale se necessario */
+  }
+
+  .popup::-webkit-scrollbar {
+    width: 0;
+}
+  
+  button{
+    margin: 10px;
+  }
+  
+  body {
+    color: #000;
+    overflow-x: hidden;
+    height: 100%;
+    background-image: url("https://i.imgur.com/GMmCQHC.png");
+    background-repeat: no-repeat;background-size: 100% 100%
+  }
+    
+  .card {
+    padding: 30px 40px;
+    margin-top: 10px;
+    margin-bottom: 60px;
+    border: none !important;
+    box-shadow: 0 6px 12px 0 rgba(0,0,0,0.2)
+  }
+  
+  .form-control-label {
+    margin-bottom: 0
+  }
+  
+  img {
+    height: 40px;
+    width: auto;
+  }
+  
+  .text-intro {
+    color: #cd4d0e;
+  }
+  
+  .logo-text {
+    font-family: 'Kanit', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-weight: 1000;
+    color: #cd4d0e;
+    font-size: large;
+    margin-bottom: 20px;
+  } 
+  
+  input, textarea, button, select {
+    padding: 8px 15px;
+    border-radius: 5px !important;
+    margin: 5px 0px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    font-size: 18px !important;
+    font-weight: 300;
+    text-align: center;
+  }
+
+  textarea {
+    text-align: justify !important;
+  }
+  
+  input:focus, textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #00BCD4;
+    outline-width: 0;font-weight: 400
+  }
+  
+  .btn-block {
+    color: white !important;
+    text-transform: uppercase;
+    font-size: 15px !important;
+    font-weight: 400;
+    height: 43px;
+    cursor: pointer
+  }
+  
+  .btn-block:hover {
+    background-color: rgb(240, 130, 76) !important;
+    transition: .35s;
+  }
+  
+  .btn-block:not(:hover) {
+    transition: .35s; 
+  }
+  
+  button:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline-width: 0
+  }
+  
+  input:focus {
+    background-color: #fff;
+    border-bottom: 2px solid #cd4d0e;
+  }
+  
+  textarea {
+    resize: none;
+  }
+  
+  .send {
+    background-color: #cd4d0e !important; 
+    border: none;
+  }
+  
+  .container-fluid {
+    background-image: url(../../../assets/img/Social_Media_Body-1480_0_60.jpg);
+    height: 100vh;
+  }
+  
+  .post-img {
+    width: 550px;
+    height: auto;
+  }
+
+  ::-webkit-input-placeholder {
+    font-size: smaller;
+    text-align: left;
+}

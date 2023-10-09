@@ -1,0 +1,49 @@
+<div class="container mb-4">
+
+    <!-- Incoming requests -->
+    <div class="card mb-4">
+        <div class="row p-3">
+            <h6>Richeste ricevute</h6>
+        </div>
+        <div *ngIf="pendingReceivedFriendShips?.length === 0 "
+            class="friendship-message col-12 text-center">
+            <span>Non hai nessuna richiesta di amicizia</span>
+        </div>
+        <div *ngFor="let friendshipRecived of user?.receivedFriendships">
+            <div class="row p-2"  *ngIf="friendshipRecived.status === 'Friendship sent'">
+                <img class="profile-pic col-2 rounded-circle img-fluid" style="object-fit: cover;" [src]="friendshipRecived.applicant?.profileImage ? friendshipRecived.applicant?.profileImage : '../../../assets/img/avatarHhh.png'" alt="">
+                <span class="col-4">{{friendshipRecived.applicant?.nickname}}</span>
+                <span class="col-3">
+                    <button type="button" class="btn btn-primary accept"
+                        (click)="confirmFriendship(friendshipRecived)"
+                        >Accetta</button>
+                </span>
+                <span class="col-2">
+                    <button type="button" class="btn btn-warning refuse"
+                    (click)="rejectFriendship(friendshipRecived?.id!)">Rifiuta</button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Outogoing requests -->
+    <div class="card mb-4">
+        <div class="row p-3">
+            <h6>Richeste inviate</h6>
+        </div>
+        <div *ngIf="pendingSendedFriendShips?.length === 0"
+            class="friendship-message col-12 text-center">
+            <span>Non hai inviato richieste di amicizia</span>
+        </div>
+        <div *ngFor="let friendshipRequested of user?.requestedFriendships">
+            <div class="row p-2" *ngIf="friendshipRequested.status == 'Friendship sent'">
+                <img class="profile-pic col-2 rounded-circle img-fluid" [src]="friendshipRequested.requested?.profileImage ? friendshipRequested.requested?.profileImage : '../../../assets/img/avatarHhh.png'" alt="">
+                <span class="col-4">{{friendshipRequested.requested?.nickname}}</span>
+                <span class="col-2">
+                    <button type="button" class="btn btn-warning refuse"
+                    (click)="deleteFriendship(friendshipRequested?.id!)">Elimina</button>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

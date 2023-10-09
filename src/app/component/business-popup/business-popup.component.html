@@ -1,0 +1,20 @@
+<div *ngIf="businessPopupVisible" class="popup-overlay">
+    <div class="popup">
+        <div class="row">
+        </div>
+        <form class="text-center">
+            <img src="../../../assets/img/3584264.jpg" alt="business"
+                class="img-fluid" style="width: 250px;">
+            <h5 class="my-3">Vuoi diventare membro Business?</h5>
+            <h6 class="my-3">costo 4,99€/mese</h6>
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <button type="button" class="btn btn-outline-success"
+                    (click)="confirmUpgrade()">SI</button>
+                    <button type="button" class="btn btn-outline-danger"
+                    (click)="cancelUpgrade()">NO</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

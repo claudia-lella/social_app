@@ -1,0 +1,19 @@
+<div class="popup-overlay" [ngClass]="{'visible': isVisible}">
+    <div class="popup">
+        <div class="row">
+        </div>
+        <form #d="ngForm">
+            <h4 class="text-center">Vuoi eliminare Il tuo profilo?</h4>
+            <h6 class="text-center">Tutti i tuoi post saranno eliminati e l'operazione è irrerversibile.</h6>
+            <h6 class="text-center">Procedere con l'eliminazione?</h6>
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <button type="button" class="btn btn-outline-success"
+                    (click)="deleteUser()">SI</button>
+                    <button type="button" class="btn btn-outline-danger"
+                    (click)="leaveDeletePopup(d)">NO</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

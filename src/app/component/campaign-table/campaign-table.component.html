@@ -1,0 +1,25 @@
+<h4 class="text-center mb-4">Elenco Post Sponsorizzati</h4>    
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">CODICE POST</th>
+            <th scope="col">CAMPAGNA</th>
+            <th scope="col">DATA INIZIO</th>
+            <th scope="col">DATA FINE</th>
+            <th scope="col">COSTO TOTALE</th>
+            <th scope="col">STATO</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let campaign of campaigns">
+                <td>{{campaign.post?.id}}</td>
+                <td>{{campaign.pattern?.type}}</td>
+                <td>{{campaign.start | date: 'dd/MM/yyyy' }}</td>
+                <td>{{campaign.end | date: 'dd/MM/yyyy' }}</td>
+                <td>{{ campaign.finalBudget | number:'1.2-2' }} Euro</td>
+                <td *ngIf="campaign.status === 'Programmata'" style="color: black">{{ campaign.status }}</td>
+                <td *ngIf="campaign.status === 'Terminata'" style="color: red">{{ campaign.status }}</td>
+                <td *ngIf="campaign.status === 'Attivata'" style="color: #499f46">{{ campaign.status }}</td>
+            </tr>
+        </tbody>
+    </table>

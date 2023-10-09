@@ -1,0 +1,17 @@
+<div class="popup-overlay" [ngClass]="{'visible': isVisible}">
+    <div class="popup">
+        <div class="row">
+        </div>
+        <form #f="ngForm">
+            <h4 class="text-center">Vuoi uscire dal tuo profilo?</h4>
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <button type="button" class="btn btn-outline-success"
+                    (click)="logoutUser()">SI</button>
+                    <button type="button" class="btn btn-outline-danger"
+                    (click)="leaveLogoutPopup(f)">NO</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

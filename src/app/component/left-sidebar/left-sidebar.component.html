@@ -1,0 +1,47 @@
+<div class="container mb-4">
+
+    <!-- User Profile -->
+    <div class="card mb-4">
+        <div class="card-body text-center">
+            <img [src]="user?.profileImage ? user?.profileImage: '../../../assets/img/avatarHhh.png'" alt="avatar"
+                class="rounded-circle img-fluid" style="width: 150px; height: 150px; object-fit: cover;">
+            <h5 class="my-3">{{user?.nickname}}</h5>
+            <p class="text-muted mb-1">{{user?.name}} {{user?.lastname}}</p>
+            <p class="text-muted mb-3">{{user?.mail}}</p>
+            <p class="text-muted mb-3 profile-type">Utente {{user?.profileType}}</p>
+            <div class="d-flex justify-content-center mb-2">
+                <button type="button" class="btn btn-primary"
+                    (click)="activateProfilePopup()">
+                    Modifica Profilo
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Businness Profile Updgrade -->
+    <div *ngIf="user?.profileType == 'Business'" class="card mb-4 business-update business">
+        <div class="card-body text-center">
+            <img src="../../../assets/img/6316.jpg" alt="business"
+                class="img-fluid" style="width: 250px;">
+            <h5 class="my-3">Membro Business</h5>
+            <div class="d-flex justify-content-center mb-2">
+                <button type="button" class="btn btn-primary"
+                (click)="goToBusiness()">Accedi all'area Businness</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Businness Profile Update -->
+    <div *ngIf="user?.profileType == 'Standard'" class="card mb-4 business-upgrade business" >
+        <div class="card-body text-center">
+            <img src="../../../assets/img/6913.jpg" alt="business"
+                class="img-fluid" style="width: 250px;">
+            <h5 class="my-3">Vuoi entrare nella rete Business?</h5>
+            <div class="d-flex justify-content-center mb-2">
+                <button type="button" class="btn btn-primary"
+                (click)="openBusinessPopup()">Upgrade a Businness</button>
+            </div>
+        </div>
+    </div>
+
+</div>

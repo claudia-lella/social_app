@@ -1,0 +1,34 @@
+<div class="popup-overlay" [ngClass]="{'visible': isVisible}">
+    <div class="popup text-center">
+        <form class="form-card" #f="ngForm" (submit)="formManager(f)">
+            <div class="row">
+                <div class="col-12 text-center mt-2 d-flex flex-column justify-content-center text-center align-items-center px-4">
+                    <img class="post-img" [src]=" image ? image : '../../../assets/img/paesaggio_prova.jpg'" alt="post-image">
+                    <div class="col-12 text-center">
+                        <input type="file" name="postImage" class="form-control" style="display: none;"
+                            accept="image/jpeg,image/png" maxlength="5242880"
+                            (change)="uploadImage($event)" #postImage>
+                        <div class="row justify-content-center my-2">
+                            <button type="button" class="btn-block btn-primary send col-6"
+                            (click)="postImage.click()">Carica foto</button> 
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 justify-content-between px-4">
+                    <textarea name="content" cols="30" rows="3" class="col-12" placeholder="Scrivi cosa pensi..."
+                        [ngModel]>
+                    </textarea>
+                </div>
+            </div>
+            <div class="row col-12 mt-2 text-center m-2">
+                <div class="form-group col-6"> 
+                    <button type="submit" class="btn-block btn-primary send"
+                    (click)="leavePostPopup(f)">Abbandona</button> 
+                </div>
+                <div class="form-group col-6"> 
+                    <button type="submit" class="btn-block btn-primary send">Pubblica</button> 
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

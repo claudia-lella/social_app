@@ -1,0 +1,43 @@
+<div class="container-fluid px-1 py-5 mx-auto">
+  <div class="row d-flex justify-content-center">
+      <div class="d-flex justify-content-center col-xl-7 col-lg-8 col-md-8 col-12 text-center">
+          <div class="card wrapper fadeInDown">
+              <form class="form-card" #f="ngForm" (submit)="formManager(f)">
+                  <div class="row justify-content-between">
+                        <span class="logo-text"><img src="../../../assets/img/hhh_logo_orange.png"alt="" class="mx-2">HahaHub</span>
+                      <h4 class="fadeIn first text-intro">Login</h4>
+                      <h6 *ngIf="serverError" class="text-danger text-center">{{serverError}}</h6>
+                  </div>
+                  <div class=" row justify-content-between text-left fadeIn second">
+                      <div class="form-group col-sm-12 flex-column d-flex"> 
+                          <label class="form-control-label px-3">
+                             Nickname<span class="text-danger"> *</span>
+                          </label> 
+                          <input [ngModel] type="text" id="nickname" name="nickname" placeholder="" required> 
+                      </div>
+                  </div>
+                  <div class="row justify-content-between text-left fadeIn third">
+                      <div class="form-group col-sm-12 flex-column d-flex"> 
+                          <label class="form-control-label px-3">
+                              Password<span class="text-danger"> *</span>
+                          </label> 
+                          <input [ngModel] type="password" id="password" name="password" placeholder="" required> 
+                      </div>
+                  </div>
+                  <div class="row justify-content-end fadeIn sixth">
+                      <div class="form-group col-sm-12 my-3"> 
+                          <button type="submit" class="btn-block btn-primary send" [disabled]="f.invalid" >Login</button> 
+                      </div>
+                  </div>
+                  <div class="row justify-content-end fadeIn sixth">
+                    <div class="form-group col-sm-12"> 
+                        <p>Non sei ancora registrato? Registrati qui</p>
+                        <button type="submit" class="btn-block btn-primary send" (click)="leaveLogin(f)">Registrati</button> 
+                    </div>
+                </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+

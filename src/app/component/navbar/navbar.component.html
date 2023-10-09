@@ -1,0 +1,86 @@
+<!-- Navbar-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid justify-content-between">
+      <!-- Left elements -->
+      <div class="d-flex">
+        <!-- Brand -->
+        <a class="navbar-brand me-2 mb-1 d-flex align-items-center" href="" >
+          <img
+          src="../../../assets/img/hhh_logo.png"
+          height="30"
+          alt="HahaHub Logo"
+          loading="lazy"
+          style="margin-top: 2px;"
+          class="mx-2"
+          [routerLink]="['home']"/>
+          <p class="logo mx-2">HahaHub</p>
+        </a>
+  
+        <!-- Search form -->
+        <form #f="ngForm" (submit)="searchEmitter(f)" class="input-group w-auto my-auto d-none d-sm-flex">
+          <input
+            [ngModel]
+            autocomplete="off"
+            type="search"
+            name="search"
+            class="form-control rounded-left"
+            placeholder="Cerca utente"
+            style="min-width: 125px;"
+          />
+          <button type="submit" class="btn btn-light">
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+      </div>
+
+      <!-- Center elements -->
+      <div class="d-flex">
+        <!-- Brand -->
+        <a class="navbar-brand me-2 mb-1 d-flex align-items-center mx-3 link">
+          <p class="menu mx-2">Torna su &#9651;</p>
+        </a>
+        <a class="navbar-brand me-2 mb-1 d-flex align-items-center mx-3 link"
+          *ngIf="position && position == 'home'">
+          <p class="menu mx-2"
+          (click)="activatePostPopup()">Aggiungi un nuovo post</p>
+        </a>
+  
+        <!-- Search form -->
+        <form class="input-group w-auto my-auto d-none d-sm-flex">
+
+        </form>
+      </div>
+      
+      <!-- Right elements -->
+      <ul class="navbar-nav flex-row">
+        <li class="nav-item me-3 me-lg-1">
+          <p class="nav-link d-sm-flex align-items-sm-center" href="">
+            <img
+            [src]="user?.profileImage ? user?.profileImage: '../../../assets/img/avatarHhh.png'" alt="avatar"
+              class="rounded-circle img-fluid" 
+              style="width: 30px; height: 30px; object-fit: cover;"
+              alt="avatar"
+              loading="lazy"
+            />
+            <strong class="d-none d-sm-block ms-1" style="color: white;">{{user?.nickname}}</strong>
+          </p>
+        </li>
+        
+        <li class="nav-item me-3 me-lg-1">
+            <button class="btn btn-light logout" type="button" id="logout-btn"
+                (click)="activateLogoutPopup()">
+                Logout
+            </button>
+        </li>
+
+        <li class="nav-item me-3 me-lg-1">
+            <button class="btn btn-warning delete" type="button" id="delete-btn"
+            (click)="activateDeletePopup()">
+                Elimina Account
+            </button>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+

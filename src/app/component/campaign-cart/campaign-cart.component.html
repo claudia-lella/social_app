@@ -1,0 +1,92 @@
+<div class="row">
+    <div class="col-12" style="border: 1px solid #dddddd">
+        <div class="row mt-4 text text-center">
+            <h5>Scelta Campagna Promozionale</h5>
+        </div>
+
+        <!-- form -->
+        <form #f="ngForm" (submit)="formManager(f)">
+            <div class="row mt-4 p-1">
+                <div class="col-6">
+                    <label class="fw-bold mb-2">Codice Post:</label>
+                    <input [ngModel]="selectedPostId" name="id" type="text" class="code" disabled>
+                </div>
+                <div class="col-6">
+                    <label class="fw-bold mb-2">Seleziona Campagna:</label>
+                    <select [ngModel] class="form-select" name="pattern">
+                        <option *ngFor="let pattern of patterns" [value]="pattern.id">{{pattern.type}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mt-4 p-1">
+                <div class="col-4">
+                    <label class="fw-bold mb-2">Data di Inizio:</label>
+                    <input [ngModel] type="date" class="form-control" name="start">
+                </div>
+                <div class="col-4">
+                    <label class="fw-bold mb-2">Data di Fine:</label>
+                    <input [ngModel] type="date" class="form-control" name="end">
+                </div>
+                <div class="col-4">
+                    <label class="fw-bold mb-2">Budget/gg:</label>
+                    <select [ngModel] class="form-select" name="budget">
+                        <option value=""></option>
+                        <option *ngFor="let pattern of patterns">{{pattern.basicDailyBudget}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- riepilogo -->
+            <div class="row d-flex justify-content-center">
+                <div class="row m-3 text-center col-6" style="font-size: 16px;">
+                    <button type="button" class="btn btn-primary" (click)="campaignReview(f)">
+                        Riepilogo
+                    </button>
+                </div>
+            </div>
+            <div class="row p-1">
+                <div class="row p-1">
+                    <div class="col-12">
+                        <h5 class="mb-3 p-1">Riepilogo:</h5>
+                        <div class="row">
+                            <div class="col-6">
+                                <p><strong>Tipo Campagna:</strong> {{ campaignType }}</p>
+                                <p><strong>Data Inizio:</strong> {{ startDate | date: 'dd/MM/yyyy' }}</p>
+                            </div>
+                            <div class="col-6">
+                                <p><strong>Budget Finale:</strong> {{ finalBudget | number:'1.2-2' }} Euro</p>
+                                <p><strong>Data di Fine:</strong> {{ endDate | date: 'dd/MM/yyyy' }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- pagamento -->
+                <div class="col-6">
+                    <h6 class="mb-3 p-1">Pagamento:</h6>
+                    <div class="form-check">
+                        <input [(ngModel)]="selectedPayment" class="form-check-input" type="radio" name="payment" value="Carta di Credito" checked>
+                        <label class="form-check-label">Carta di Credito</label>
+                    </div>
+                    <div class="form-check">
+                        <input [(ngModel)]="selectedPayment" class="form-check-input" type="radio" name="payment" value="PayPal">
+                        <label class="form-check-label">Paypal</label>
+                    </div>
+                    <div class="form-check">
+                        <input [(ngModel)]="selectedPayment" class="form-check-input" type="radio" name="payment" value="Bonifico">
+                        <label class="form-check-label">Bonifico</label>
+                    </div>
+                </div>
+
+                <!-- submit -->
+                <div class="row">
+                    <div class="row m-3 text-center col-12" style="font-size: 20px;">
+                        <button type="submit" class="btn btn-primary">
+                            Conferma Campagna
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
